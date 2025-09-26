@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Лол заскамил</title>
+    <style>
+        /* Стили для всей страницы */
+        body {
+            background-color: #000; /* Черный фон */
+            color: #00ff00; /* Ярко-зеленый цвет текста */
+            font-family: 'Courier New', Courier, monospace; /* "Хакерский" шрифт */
+            margin: 0;
+            padding: 0;
+            /* Центрирование контента по вертикали и горизонтали */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Высота на весь экран */
+            overflow: hidden; /* Убрать прокрутку */
+        }
+
+        /* Стили для заголовка */
+        h1 {
+            font-size: 5vw; /* Размер шрифта, который адаптируется под ширину экрана */
+            text-align: center;
+            /* Эффект неонового свечения */
+            text-shadow: 
+                0 0 5px #00ff00,
+                0 0 10px #00ff00,
+                0 0 20px #00ff00,
+                0 0 40px #00ff00;
+            /* Анимация плавного появления */
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        /* Скрываем стандартный аудио плеер */
+        audio {
+            display: none;
+        }
+
+        /* Определение анимации */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                filter: blur(10px);
+            }
+            to {
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>лол заскамил</h1>
+
+    <audio autoplay loop>
+        <source src="sound.mp3" type="audio/mpeg">
+        Ваш браузер не поддерживает аудио.
+    </audio>
+
+</body>
+</html>
