@@ -11,10 +11,10 @@
         /* 1. ОБЩИЕ СТИЛИ (РОЗОВАЯ ЭСТЕТИКА + ШРИФТЫ) */
         /* ========================================================= */
         :root {
-            --color-cream: #FFF5F7; /* Основной фон: Очень светлый, почти белый розовый */
-            --color-anthracite: #36454F; /* Основной текст/заголовки (для контраста) */
-            --color-pink-light: #F7A8B8; /* Нежный розовый (Акцент/линии) */
-            --color-pink-dark: #D96A8A; /* Глубокий розовый/Ягодный (Теплый акцент) */
+            --color-cream: #FFF5F7; 
+            --color-anthracite: #36454F; 
+            --color-pink-light: #F7A8B8; 
+            --color-pink-dark: #D96A8A; 
         }
 
         * {
@@ -24,11 +24,10 @@
         }
 
         body {
-            /* Новый, более красивый шрифт для основного текста: Playfair Display */
             font-family: 'Playfair Display', serif; 
             color: var(--color-anthracite);
             background-color: var(--color-cream);
-            line-height: 1.8; /* Увеличиваем межстрочный интервал для элегантности */
+            line-height: 1.8; 
             text-rendering: optimizeLegibility;
         }
 
@@ -39,14 +38,13 @@
         }
 
         .section-title {
-            /* ШИРОКИЙ ШРИФТ ДЛЯ ЗАГОЛОВКОВ (аналог MTS Wide) */
             font-family: 'Montserrat', sans-serif;
             font-size: 2.5rem;
-            font-weight: 700; /* Полужирный */
+            font-weight: 700; 
             text-align: center;
             margin-bottom: 50px;
             padding-top: 80px;
-            letter-spacing: 5px; /* Увеличиваем расстояние для "WIDE" эффекта */
+            letter-spacing: 5px; 
             text-transform: uppercase;
             color: var(--color-pink-dark); 
         }
@@ -72,7 +70,7 @@
             height: 500px;
             object-fit: cover;
             border-radius: 50%;
-            box-shadow: 0 10px 30px rgba(217, 106, 138, 0.2);
+            box-shadow: 0 10px 30px rgba(217, 106, 138, 0.2); 
             margin-bottom: 40px;
             opacity: 0;
             transform: scale(0.9);
@@ -80,11 +78,10 @@
         }
 
         .name-kenko {
-            /* КЭНКО - ШИРОКИЙ ШРИФТ И СИЛЬНЫЙ АКЦЕНТ */
             font-family: 'Montserrat', sans-serif;
-            font-size: 6rem; /* Делаем его очень большим */
-            font-weight: 900; /* Экстра-жирный */
-            letter-spacing: 20px; /* Очень широкое расстояние */
+            font-size: 6rem; 
+            font-weight: 900; 
+            letter-spacing: 20px; 
             text-transform: uppercase;
             color: var(--color-pink-dark); 
             margin: 0;
@@ -93,7 +90,7 @@
         }
 
         .tagline {
-            font-family: 'Playfair Display', serif; /* Элегантный шрифт для подписи */
+            font-family: 'Playfair Display', serif; 
             font-size: 1.5rem;
             font-style: italic;
             font-weight: 400;
@@ -114,7 +111,7 @@
             bottom: 30px;
             font-size: 2rem;
             text-decoration: none;
-            color: var(--color-pink-light);
+            color: var(--color-pink-light); 
             opacity: 0.7;
             animation: bounce 2s infinite;
         }
@@ -147,7 +144,7 @@
             flex: 1;
             padding: 0 20px;
             border-left: 1px solid var(--color-pink-light);
-            font-style: italic; /* Курсив для красоты */
+            font-style: italic;
         }
         
         .bio-content p:first-child {
@@ -156,7 +153,7 @@
 
 
         /* ========================================================= */
-        /* 4. СЕКЦИЯ ГАЛЕРЕИ (MAGAZINE GRID) */
+        /* 4. СЕКЦИЯ ГАЛЕРЕИ (MAGAZINE GRID) - ИЗМЕНЕНА ДЛЯ 5 ФОТО */
         /* ========================================================= */
         .gallery-section {
             padding: 50px 0 100px;
@@ -164,7 +161,8 @@
 
         .photo-grid-kenko {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            /* Настраиваем сетку для 5 фотографий, возможно, 2-3 колонки */
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
             gap: 20px; 
             max-width: 1200px;
             margin: 0 auto;
@@ -185,30 +183,34 @@
             filter: brightness(1);
         }
 
-        /* Настройки для асимметрии */
-        .photo-grid-kenko img:nth-child(1) { 
+        /* Настройки для асимметрии (ключевые стили для журнала) */
+        /* Адаптируем расположение для 5 фотографий */
+        
+        .photo-grid-kenko img:nth-child(1) { /* Первая фото (4.jpg) - крупная */
             grid-column: span 2; 
             grid-row: span 2; 
             min-height: 550px; 
         }
 
-        .photo-grid-kenko img:nth-child(2) { 
+        .photo-grid-kenko img:nth-child(2) { /* Вторая фото (2025-09-09_23-33-16.jpg) */
             min-height: 265px;
         }
 
-        .photo-grid-kenko img:nth-child(3) { 
+        .photo-grid-kenko img:nth-child(3) { /* Третья фото (3.jpg) */
             min-height: 265px;
         }
 
-        .photo-grid-kenko img:nth-child(4) { 
-            grid-column: span 3; 
+        .photo-grid-kenko img:nth-child(4) { /* Четвертая фото (1.jpg) - более широкая */
+            grid-column: span 3; /* Широкий элемент */
             min-height: 300px;
         }
 
-        .photo-grid-kenko img:nth-child(5) { 
-            grid-column: 1 / -1; 
-            min-height: 400px;
+        .photo-grid-kenko img:nth-child(5) { /* Пятая (новая) фото (5.jpg) - тоже широкая */
+            grid-column: span 3; /* Широкий элемент */
+            min-height: 300px;
         }
+        /* Если нужно сделать 5-ю фото еще больше, можно сделать grid-column: 1 / -1; и min-height: 400px; */
+
 
         /* ========================================================= */
         /* 5. СЕКЦИЯ ФАКТОВ (FACTS) */
@@ -225,7 +227,7 @@
             gap: 20px;
             max-width: 1000px;
             margin: 0 auto;
-            font-family: 'Montserrat', sans-serif; /* Montserrat для фактов */
+            font-family: 'Montserrat', sans-serif; 
         }
 
         .fact-list li {
@@ -245,7 +247,7 @@
         }
 
         /* ========================================================= */
-        /* 6. ФУТЕР (FOOTER) */
+        /* 6. ФУТЕР (FOOTER) - ИЗМЕНЕН */
         /* ========================================================= */
         .footer {
             text-align: center;
@@ -259,12 +261,16 @@
         .footer a {
             color: var(--color-pink-light); 
             text-decoration: none;
-            margin: 0 10px;
+            margin: 0 5px; /* Уменьшаем отступы для более плотного текста */
             transition: color 0.3s;
         }
         
         .footer a:hover {
             color: var(--color-pink-dark);
+        }
+        
+        .footer span { /* Добавляем стиль для "люблю Кэнку" */
+            color: var(--color-pink-light);
         }
 
         /* ========================================================= */
@@ -297,7 +303,7 @@
 
             .photo-grid-kenko img:nth-child(1),
             .photo-grid-kenko img:nth-child(4),
-            .photo-grid-kenko img:nth-child(5) {
+            .photo-grid-kenko img:nth-child(5) { /* Теперь 5-я фото тоже адаптируется */
                 grid-column: auto;
                 grid-row: auto;
                 min-height: 250px;
@@ -346,8 +352,7 @@
                 <img src="3.jpg" alt="Крупный план Кэнко" class="grid-item">
                 <img src="2.jpg" alt="Кэнко на прогулке" class="grid-item">
                 <img src="1.jpg" alt="Кэнко отдыхает" class="grid-item">
-                <img src="4.jpg" alt="Кэнко и его любимая игрушка" class="grid-item">
-            </div>
+                <img src="5.jpg" alt="Кэнко и человек" class="grid-item"> </div>
         </div>
     </section>
 
@@ -365,7 +370,11 @@
     </section>
 
     <footer class="footer">
-        <p>© 2025 КЭНКО. The Art of Serenity. | <a href="#">Instagram</a> | <a href="#">Связаться</a></p>
+        <p>
+            &copy; 2025 КЭНКО. Сайт создан 
+            <a href="https://t.me/@dqmjr" target="_blank" rel="noopener noreferrer">@dqmjr</a>. 
+            <span>| Люблю Кэнку</span>
+        </p>
     </footer>
 
 </body>
