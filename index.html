@@ -2,63 +2,371 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Лол заскамил</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>КЭНКО — Искусство Безмятежности</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+    
     <style>
-        /* Стили для всей страницы */
-        body {
-            background-color: #000; /* Черный фон */
-            color: #00ff00; /* Ярко-зеленый цвет текста */
-            font-family: 'Courier New', Courier, monospace; /* "Хакерский" шрифт */
+        /* ========================================================= */
+        /* 1. ОБЩИЕ СТИЛИ (РОЗОВАЯ ЭСТЕТИКА + ШРИФТЫ) */
+        /* ========================================================= */
+        :root {
+            --color-cream: #FFF5F7; /* Основной фон: Очень светлый, почти белый розовый */
+            --color-anthracite: #36454F; /* Основной текст/заголовки (для контраста) */
+            --color-pink-light: #F7A8B8; /* Нежный розовый (Акцент/линии) */
+            --color-pink-dark: #D96A8A; /* Глубокий розовый/Ягодный (Теплый акцент) */
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            /* Центрирование контента по вертикали и горизонтали */
+        }
+
+        body {
+            /* Новый, более красивый шрифт для основного текста: Playfair Display */
+            font-family: 'Playfair Display', serif; 
+            color: var(--color-anthracite);
+            background-color: var(--color-cream);
+            line-height: 1.8; /* Увеличиваем межстрочный интервал для элегантности */
+            text-rendering: optimizeLegibility;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            /* ШИРОКИЙ ШРИФТ ДЛЯ ЗАГОЛОВКОВ (аналог MTS Wide) */
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700; /* Полужирный */
+            text-align: center;
+            margin-bottom: 50px;
+            padding-top: 80px;
+            letter-spacing: 5px; /* Увеличиваем расстояние для "WIDE" эффекта */
+            text-transform: uppercase;
+            color: var(--color-pink-dark); 
+        }
+
+        /* ========================================================= */
+        /* 2. СЕКЦИЯ ГЕРОЯ (HERO) */
+        /* ========================================================= */
+        .hero {
+            height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Высота на весь экран */
-            overflow: hidden; /* Убрать прокрутку */
-        }
-
-        /* Стили для заголовка */
-        h1 {
-            font-size: 5vw; /* Размер шрифта, который адаптируется под ширину экрана */
             text-align: center;
-            /* Эффект неонового свечения */
-            text-shadow: 
-                0 0 5px #00ff00,
-                0 0 10px #00ff00,
-                0 0 20px #00ff00,
-                0 0 40px #00ff00;
-            /* Анимация плавного появления */
-            animation: fadeIn 3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+            background: var(--color-cream);
         }
 
-        /* Скрываем стандартный аудио плеер */
-        audio {
-            display: none;
+        .hero-image {
+            width: 100%;
+            max-width: 500px;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 10px 30px rgba(217, 106, 138, 0.2);
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: scale(0.9);
+            animation: fadeInScale 1s ease-out forwards 0.3s;
         }
 
-        /* Определение анимации */
+        .name-kenko {
+            /* КЭНКО - ШИРОКИЙ ШРИФТ И СИЛЬНЫЙ АКЦЕНТ */
+            font-family: 'Montserrat', sans-serif;
+            font-size: 6rem; /* Делаем его очень большим */
+            font-weight: 900; /* Экстра-жирный */
+            letter-spacing: 20px; /* Очень широкое расстояние */
+            text-transform: uppercase;
+            color: var(--color-pink-dark); 
+            margin: 0;
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards 0.8s;
+        }
+
+        .tagline {
+            font-family: 'Playfair Display', serif; /* Элегантный шрифт для подписи */
+            font-size: 1.5rem;
+            font-style: italic;
+            font-weight: 400;
+            color: var(--color-anthracite);
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards 1.3s;
+        }
+        
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                filter: blur(10px);
+            to { opacity: 1; }
+        }
+        @keyframes fadeInScale {
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            font-size: 2rem;
+            text-decoration: none;
+            color: var(--color-pink-light);
+            opacity: 0.7;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+
+        /* ========================================================= */
+        /* 3. СЕКЦИЯ БИО (BIO) */
+        /* ========================================================= */
+        .bio-section {
+            padding: 100px 0;
+            background-color: white; 
+        }
+
+        .bio-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.2rem;
+            display: flex;
+            gap: 40px;
+        }
+        
+        .bio-content p {
+            flex: 1;
+            padding: 0 20px;
+            border-left: 1px solid var(--color-pink-light);
+            font-style: italic; /* Курсив для красоты */
+        }
+        
+        .bio-content p:first-child {
+            border-left: none;
+        }
+
+
+        /* ========================================================= */
+        /* 4. СЕКЦИЯ ГАЛЕРЕИ (MAGAZINE GRID) */
+        /* ========================================================= */
+        .gallery-section {
+            padding: 50px 0 100px;
+        }
+
+        .photo-grid-kenko {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            gap: 20px; 
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid-item {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+            filter: brightness(0.95);
+        }
+
+        .grid-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 35px rgba(217, 106, 138, 0.25);
+            filter: brightness(1);
+        }
+
+        /* Настройки для асимметрии */
+        .photo-grid-kenko img:nth-child(1) { 
+            grid-column: span 2; 
+            grid-row: span 2; 
+            min-height: 550px; 
+        }
+
+        .photo-grid-kenko img:nth-child(2) { 
+            min-height: 265px;
+        }
+
+        .photo-grid-kenko img:nth-child(3) { 
+            min-height: 265px;
+        }
+
+        .photo-grid-kenko img:nth-child(4) { 
+            grid-column: span 3; 
+            min-height: 300px;
+        }
+
+        .photo-grid-kenko img:nth-child(5) { 
+            grid-column: 1 / -1; 
+            min-height: 400px;
+        }
+
+        /* ========================================================= */
+        /* 5. СЕКЦИЯ ФАКТОВ (FACTS) */
+        /* ========================================================= */
+        .facts-section {
+            padding: 50px 0 100px;
+        }
+
+        .fact-list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            font-family: 'Montserrat', sans-serif; /* Montserrat для фактов */
+        }
+
+        .fact-list li {
+            background-color: white;
+            padding: 25px 40px;
+            border-left: 5px solid var(--color-pink-dark); 
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            font-size: 1rem;
+            font-weight: 500;
+            flex-basis: 300px;
+            border-radius: 4px;
+        }
+        
+        .fact-list li strong {
+            color: var(--color-pink-dark); 
+            font-weight: 700;
+        }
+
+        /* ========================================================= */
+        /* 6. ФУТЕР (FOOTER) */
+        /* ========================================================= */
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            background-color: var(--color-anthracite);
+            color: var(--color-cream);
+            font-size: 0.9rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .footer a {
+            color: var(--color-pink-light); 
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .footer a:hover {
+            color: var(--color-pink-dark);
+        }
+
+        /* ========================================================= */
+        /* 7. АДАПТИВНОСТЬ (MOBILE) */
+        /* ========================================================= */
+        @media (max-width: 768px) {
+            .name-kenko {
+                font-size: 4rem;
+                letter-spacing: 10px;
             }
-            to {
-                opacity: 1;
-                filter: blur(0);
+            
+            .section-title {
+                font-size: 2rem;
+                letter-spacing: 3px;
+            }
+            
+            .bio-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .bio-content p {
+                border-left: none;
+            }
+
+            .photo-grid-kenko {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .photo-grid-kenko img:nth-child(1),
+            .photo-grid-kenko img:nth-child(4),
+            .photo-grid-kenko img:nth-child(5) {
+                grid-column: auto;
+                grid-row: auto;
+                min-height: 250px;
             }
         }
     </style>
 </head>
+
 <body>
 
-    <h1>лол заскамил</h1>
+    <section class="hero">
+        <img src="4.jpg" alt="Портрет Кэнко" class="hero-image"> 
+        <div class="hero-text">
+            <h1 class="name-kenko">КЭНКО</h1>
+            <p class="tagline">Искусство Безмятежности</p>
+        </div>
+        <a href="#bio" class="scroll-down" aria-label="Прокрутить вниз">↓</a>
+    </section>
 
-    <audio autoplay loop>
-        <source src="sound.mp3" type="audio/mpeg">
-        Ваш браузер не поддерживает аудио.
-    </audio>
+    <section id="bio" class="bio-section">
+        <div class="container">
+            <h2 class="section-title">ЕГО ИСТОРИЯ</h2>
+            <div class="bio-content">
+                <p>
+                    **Кэнко** — это не просто собака, это целая философия. 
+                    Рожденный с душой мудрого философа, он вносит покой и гармонию
+                    в каждый свой день. Его взгляд глубок, а движения грациозны,
+                    как течение горного ручья. Он ценит тишину утра, мягкий свет
+                    и долгие прогулки, где можно вдыхать ароматы земли.
+                </p>
+                <p>
+                    С японского "Кэнко" переводится как "здоровье", и он живет,
+                    олицетворяя собой баланс, силу и внутреннюю красоту.
+                    Его любимое занятие — медитация на солнечном пятне,
+                    и, конечно же, самые нежные обнимашки.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">МОМЕНТЫ ЖИЗНИ</h2>
+            <div class="photo-grid-kenko">
+                <img src="photo_2025-09-09_23-33-16.jpg" alt="Кэнко в траве" class="grid-item">
+                <img src="3.jpg" alt="Крупный план Кэнко" class="grid-item">
+                <img src="2.jpg" alt="Кэнко на прогулке" class="grid-item">
+                <img src="1.jpg" alt="Кэнко отдыхает" class="grid-item">
+                <img src="4.jpg" alt="Кэнко и его любимая игрушка" class="grid-item">
+            </div>
+        </div>
+    </section>
+
+    <section class="facts-section">
+        <div class="container">
+            <h2 class="section-title">ЛЮБОПЫТНЫЕ ФАКТЫ</h2>
+            <ul class="fact-list">
+                <li>Любимый цвет: **Нежно-розовый** (но только на любимом одеяле).</li>
+                <li>Знак зодиака: **Гений** (по собачьему гороскопу).</li>
+                <li>Привычка: **Смотреть в окно с самым важным видом**.</li>
+                <li>Фирменный трюк: **Исчезать, когда приходит время для ванны**.</li>
+                <li>Самый вкусный звук: **Шелест пакета с лакомством**.</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2025 КЭНКО. The Art of Serenity. | <a href="#">Instagram</a> | <a href="#">Связаться</a></p>
+    </footer>
 
 </body>
 </html>
